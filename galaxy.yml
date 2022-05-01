@@ -1,0 +1,20 @@
+---
+namespace: markosamuli
+name: machine
+version: 0.1.0
+readme: README.md
+authors:
+  - markosamuli
+description: Collection of development setup automation tools for Ansible.
+license:
+  - MIT
+tags:
+  - mac
+  - linux
+dependencies:
+  community.general: ">=4.0.0"
+repository: https://github.com/markosamuli/ansible-collection-machine
+documentation: https://github.com/markosamuli/ansible-collection-machine
+homepage: http://machine.msk.io
+issues: https://github.com/markosamuli/ansible-collection-machine/issues
+build_ignore: []
