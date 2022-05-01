@@ -1,0 +1,26 @@
+---
+# Directories that should be group readable only
+user_home_group_readable:
+  - ~/.asdf
+  - ~/.cpan
+  - ~/.dotfiles
+  - ~/.gem
+  - ~/.gsutil
+  - ~/.kube
+  - ~/.local
+  - ~/.npm
+  - ~/.nvm
+  - ~/.pyenv
+  - ~/.rbenv
+  - ~/.siege
+  - ~/.terraform.d
+  - ~/.yarn
+  - ~/opt
+
+# Directories that should be user readable only
+user_home_user_readable:
+  - ~/.ansible
+  - ~/.aws
+  - ~/.docker
+  - ~/.helm
+  - ~/.ssh
