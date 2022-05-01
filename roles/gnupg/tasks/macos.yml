@@ -1,0 +1,31 @@
+---
+- name: Install packages with Homebrew
+  homebrew:
+    name: "{{ item }}"
+  loop: "{{ gnupg_homebrew_packages }}"
+
+- name: Ensure ~/.gnupg directory exists
+  file:
+    path: "{{ gnupg_dir }}"
+    state: directory
+    mode: 0700
+
+- name: Where is pinentry-mac?
+  command: which pinentry-mac
+  register: pinentry_mac_result
+  changed_when: false
+
+- name: Set pinentry-mac path
+  set_fact:
+    pinentry_mac_path: "{{ pinentry_mac_result.stdout }}"
+  when: pinentry_mac_result.rc == 0
+
+- name: Configure pinentry-mac for password entry
+  ansible.builtin.lineinfile:
+    path: "{{ gnupg_dir }}/gpg-agent.conf"
+    regexp: "^pinentry-program"
+    line: pinentry-program {{ pinentry_mac_path }}
+    mode: 0600
+    create: true
+  notify:
+    - Stop gpg-agent

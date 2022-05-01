@@ -1,0 +1,5 @@
+---
+gnupg_dir: "{{ ansible_env.HOME }}/.gnupg"
+gnupg_homebrew_packages:
+  - gnupg
+  - pinentry-mac

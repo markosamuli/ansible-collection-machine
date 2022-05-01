@@ -1,0 +1,4 @@
+---
+- name: Install and configure GnuPG on macOS
+  include_tasks: macos.yml
+  when: "ansible_os_family == 'Darwin'"
